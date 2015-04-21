@@ -1,0 +1,2 @@
+angular.module('fusionLiveMobile.directives', []);
+

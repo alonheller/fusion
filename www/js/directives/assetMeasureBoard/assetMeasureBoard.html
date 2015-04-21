@@ -1,0 +1,80 @@
+<ion-tabs tabs-type="tabs-icon-only"><!--delegate-handle="asset-measure-tabs"-->
+
+    <ion-tab title="Asset Measure Information" icon-on="ion-ios-information" icon-off="ion-ios-information-outline">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <label ng-if="assetMeasureInfo.Name != '' && assetMeasureInfo.Name != undefined" class="item item-input">
+                <span class="input-label">Name</span>
+                <span class="input-label">{{assetMeasureInfo.Name}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmBypass != '' && assetMeasureInfo.AlarmBypass != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Bypass</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmBypass}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmClear != '' && assetMeasureInfo.AlarmClear != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Clear</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmClear}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmDelay != '' && assetMeasureInfo.AlarmDelay != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Delay</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmDelay}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmDeviation != '' && assetMeasureInfo.AlarmDeviation != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Deviation</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmDeviation}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmDigital != '' && assetMeasureInfo.AlarmDigital != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Digital</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmDigital}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.Precision != '' && assetMeasureInfo.Precision != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Precision</span>
+                <span class="input-label">{{assetMeasureInfo.Precision}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmHigh != '' && assetMeasureInfo.AlarmHigh != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm High</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmHigh}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.AlarmLow != '' && assetMeasureInfo.AlarmLow != undefined"
+                   class="item item-input">
+                <span class="input-label">Alarm Low</span>
+                <span class="input-label">{{assetMeasureInfo.AlarmLow}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.WarningHigh != '' && assetMeasureInfo.WarningHigh != undefined"
+                   class="item item-input">
+                <span class="input-label">Warning High</span>
+                <span class="input-label">{{assetMeasureInfo.WarningHigh}}</span>
+            </label>
+            <label ng-if="assetMeasureInfo.WarningLow != '' && assetMeasureInfo.WarningLow != undefined"
+                   class="item item-input">
+                <span class="input-label">Warning Low</span>
+                <span class="input-label">{{assetMeasureInfo.WarningLow}}</span>
+            </label>
+            <!--
+            AlarmTypeID: 0
+            AssetID: 702
+            AssetMeasureTypeID: 0
+            EndDate: "3999-12-31T23:59:59Z"
+            FalseString: "False"
+            ID: 1002
+            MeasureID: 1
+            MeasureUnitID: 3
+            StartDate: "2012-11-16T20:17:03.67Z"
+            StatusCode: 0
+            TrueString: "True"-->
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Asset Measure Status" icon-on="ion-ios-pie" icon-off="ion-ios-pie-outline">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <h2>Asset Measure Status</h2>
+        </ion-content>
+    </ion-tab>
+
+</ion-tabs>

@@ -1,0 +1,18 @@
+<ion-view title="{{selectedObjectName}}" class="bubble-background">
+
+
+
+    <ion-side-menus>
+
+        <ion-side-menu side="left" enable-menu-with-back-views="true">
+            <ecs-navigator items="items"></ecs-navigator>
+        </ion-side-menu>
+
+       <ion-side-menu-content ng-switch on="state">
+            <location-board ng-switch-when="location"></location-board>
+            <asset-board ng-switch-when="location.asset"></asset-board>
+            <asset-measure-board ng-switch-when="location.asset.assetMeasure"></asset-measure-board>
+        </ion-side-menu-content>
+
+    </ion-side-menus>
+</ion-view>

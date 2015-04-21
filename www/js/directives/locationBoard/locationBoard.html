@@ -1,0 +1,140 @@
+
+
+<ion-tabs class="tabs-icon-top tabs-positive" delegate-handle="location-tabs">
+    <ion-tab title="Location Information" icon-on="ion-ios-information" icon-off="ion-ios-information-outline" ng-click="onTabSelected(0)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <label ng-if="info.Name != '' && info.Name != undefined" class="item item-input">
+                <span class="input-label">Name</span>
+                <span class="input-label">{{info.Name}}</span>
+            </label>
+            <label ng-if="info.AddressText != '' && info.AddressText != undefined" class="item item-input">
+                <span class="input-label">Address</span>
+                <span class="input-label">{{info.AddressText}}</span>
+            </label>
+            <label ng-if="info.City != '' && info.City != undefined" class="item item-input">
+                <span class="input-label">City</span>
+                <span class="input-label">{{info.City}}</span>
+            </label>
+            <label ng-if="info.State != ''  && info.State != undefined" class="item item-input">
+                <span class="input-label">State</span>
+                <span class="input-label">{{info.State}}</span>
+            </label>
+            <label ng-if="info.PostalCode != '' && info.PostalCode != undefined" class="item item-input">
+                <span class="input-label">PostalCode</span>
+                <span class="input-label">{{info.PostalCode}}</span>
+            </label>
+            <label ng-if="info.Country != '' && info.Country != undefined" class="item item-input">
+                <span class="input-label">Country</span>
+                <span class="input-label">{{info.Country}}</span>
+            </label>
+            <label ng-if="info.Phone1 != '' && info.Phone1 != undefined" class="item item-input">
+                <span class="input-label">Phone #1</span>
+                <a class="button icon-left ion-ios-telephone button-calm button-outline" ng-href="tel: {{info.Phone1}}">Call
+                    {{info.Phone1}}</a>
+            </label>
+            <label ng-if="info.Phone2 != '' && info.Phone2 != undefined" class="item item-input">
+                <span class="input-label">Phone #2</span>
+                <a class="button icon-left ion-ios-telephone button-calm button-outline" ng-href="tel: {{info.Phone2}}">Call
+                    {{info.Phone2}}</a>
+            </label>
+            <label ng-if="info.MobilePhone != '' && info.MobilePhone != undefined" class="item item-input">
+                <span class="input-label">Mobile Phone</span>
+                <a class="button icon-left ion-ios-telephone button-calm button-outline"
+                   ng-href="tel: {{info.MobilePhone}}">Call {{info.MobilePhone}}</a>
+            </label>
+            <label ng-if="info.Fax != '' && info.Fax != undefined" class="item item-input">
+                <span class="input-label">Fax</span>
+                <span class="input-label">{{info.Fax}}</span>
+            </label>
+            <label ng-if="info.Email != '' && info.Email != undefined" class="item item-input">
+                <span class="input-label">Email</span>
+                <a class="button icon-left ion-ios-email button-calm button-outline" ng-href="mailto: {{info.Email}}">{{info.Email}}</a>
+            </label>
+            <label ng-if="info.URL != '' && info.URL != undefined" class="item item-input">
+                <span class="input-label">URL</span>
+                <a class="button icon-left ion-android-globe button-calm button-outline"
+                   ng-href="{{info.URL}}">{{info.URL}}</a>
+            </label>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Location Status" icon-on="ion-ios-pie" icon-off="ion-ios-pie-outline" ng-click="onTabSelected(1)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <nvd3 options='chartOptions' data='alarmChartData'></nvd3>
+            <nvd3 options='chartOptions' data='ticketChartData'></nvd3>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Location Alarms" icon-on="ion-ios-flag" icon-off="ion-ios-flag-outline" ng-click="onTabSelected(2)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <div ng-repeat="alarm in alarms" ng-click="onAlarmClick(alarm)">
+                <ion-item class="item-thumbnail-left">
+                    <!--<img src="../img/ticket.png">-->
+
+                    <h2>{{alarm.AssetName}} {{asset.AssetMeasureName}}</h2>
+
+                    <p>{{alarm.StatusTimestamp | beautyDate}}</p>
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Location Tickets" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" ng-click="onTabSelected(3)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <div ng-repeat="ticket in tickets" ng-click="onTicketClick(ticket)">
+                <ion-item class="item-thumbnail-left">
+                    <!--<img src="../img/ticket.png">-->
+
+                    <h2>{{ticket.ObjectName}}</h2>
+
+                    <p>{{ticket.CreatedOn | beautyDate}}</p>
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Reports" icon-on="ion-document-text" icon-off="ion-document" ng-click="onTabSelected(4)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+
+            <label class="item item-input item-select">
+                <div class="input-label">Reports:</div>
+                <select ng-model="model.selectedReport" ng-change="setVisibleControlsForReport()">
+                    <option value="{{report}}" ng-repeat="report in reports">{{report.Name}}</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select" ng-show="timeParameterVisible">
+                <button ng-click="onFromClick()">From:</button>
+            </label>
+
+            <label class="item item-input item-select" ng-show="timeParameterVisible">
+                <button ng-click="onToClick()">To:</button>
+            </label>
+
+
+            <label class="item item-input item-select" ng-show="warningParameterVisible">
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="model.showWarnings">
+                    </label>
+                    Show Warnings ?
+                </div>
+            </label>
+
+            <label class="item item-input item-select" ng-show="alarmParameterVisible">
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="model.showAlarms">
+                    </label>
+                    Show Alarms ?
+                </div>
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">Create Report</div>
+                <button ng-click="onGenerateReport()">Create Report</button>
+            </label>
+
+        </ion-content>
+    </ion-tab>
+</ion-tabs>

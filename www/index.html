@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+my example: http://codepen.io/alonheller/pen/dobvzO
+fixed version: http://codepen.io/anon/pen/PqYpJE
+
+nav-bar was wrong
+[08:21] <fullstack> ios7 now ios
+[08:22] <fullstack> you had ion-nav-view inside the slide menu (?) that had to be moved to the bottom
+
+-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script>
+        moment().format();
+    </script>
+
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/nvd3/nv.d3.js"></script> <!-- or use another assembly -->
+    <script src="lib/angular-nvd3/dist/angular-nvd3.js"></script>
+    <link rel="stylesheet" href="lib/nvd3/nv.d3.css">
+
+    <script src="js/controllers.mdl.js"></script>
+    <script src="js/services.mdl.js"></script>
+    <script src="js/consts.mdl.js"></script>
+    <script src="js/directives.mdl.js"></script>
+    <script src="js/filters.mdl.js"></script>
+
+    <script src="js/consts/default.cnst.js"></script>
+    <script src="js/consts/httpMethod.cnst.js"></script>
+    <script src="js/consts/statusCodes.cnst.js"></script>
+    <script src="js/consts/topologyTypes.cnst.js"></script>
+    <script src="js/consts/reports.cnst.js"></script>
+
+    <script src="js/filters/beautyDate.flt.js"></script>
+
+    <script src="js/controllers/login.ctrl.js"></script>
+    <script src="js/controllers/location.ctrl.js"></script>
+
+    <script src="js/services/utils/localStorage.srv.js"></script>
+    <script src="js/services/commonData.srv.js"></script>
+    <script src="js/services/login.srv.js"></script>
+    <script src="js/services/network.srv.js"></script>
+    <script src="js/services/topology.srv.js"></script>
+    <script src="js/services/report.srv.js"></script>
+    <script src="js/services/ticket.srv.js"></script>
+    <script src="js/services/alarm.srv.js"></script>
+
+    <script src="js/directives/ecsNavigator/ecsNavigator.drv.js"></script>
+    <script src="js/directives/locationBoard/locationBoard.drv.js"></script>
+    <script src="js/directives/assetBoard/assetBoard.drv.js"></script>
+    <script src="js/directives/assetMeasureBoard/assetMeasureBoard.drv.js"></script>
+</head>
+<body ng-app="fusionLiveMobile">
+
+<ion-nav-bar class="bar-positive">
+    <!--<ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>-->
+
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-nav-view name="mainContainer" ></ion-nav-view>
+</body>
+</html>

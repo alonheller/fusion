@@ -1,0 +1,16 @@
+<!--<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+</ion-nav-bar>-->
+
+<ion-view title="{{navTitle}}" class="bubble-background">
+    <ion-content>
+        <h1>Entry Page!</h1>
+
+        <ion-list>
+            <ion-item ng-repeat="item in items track by $index" nav-clear ng-click="onItemClick(item)">
+                <div>{{item.name}}</div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

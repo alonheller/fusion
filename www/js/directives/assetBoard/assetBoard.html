@@ -1,0 +1,92 @@
+
+<ion-tabs tabs-type="tabs-icon-only" delegate-handle="asset-tabs">
+
+    <ion-tab title="Asset Information" icon-on="ion-ios-information" icon-off="ion-ios-information-outline" ng-click="onTabSelected(0)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <label ng-if="assetInfo.Name != '' && assetInfo.Name != undefined" class="item item-input">
+                <span class="input-label">Name</span>
+                <span class="input-label">{{assetInfo.Name}}</span>
+            </label>
+            <label ng-if="assetInfo.BillOfMaterial != '' && assetInfo.BillOfMaterial != undefined" class="item item-input">
+                <span class="input-label">Bill of Material</span>
+                <span class="input-label">{{assetInfo.BillOfMaterial}}</span>
+            </label>
+            <label ng-if="assetInfo.Comments != '' && assetInfo.Comments != undefined" class="item item-input">
+                <span class="input-label">Comments</span>
+                <span class="input-label">{{assetInfo.Comments}}</span>
+            </label>
+            <label ng-if="assetInfo.ControllerTitle != '' && assetInfo.ControllerTitle != undefined" class="item item-input">
+                <span class="input-label">Controller Title</span>
+                <span class="input-label">{{assetInfo.ControllerTitle}}</span>
+            </label>
+            <label ng-if="assetInfo.ControllerVersion != '' && assetInfo.ControllerVersion != undefined" class="item item-input">
+                <span class="input-label">Controller Version</span>
+                <span class="input-label">{{assetInfo.ControllerVersion}}</span>
+            </label>
+            <label ng-if="assetInfo.InstallationDate != '' && assetInfo.InstallationDate != undefined" class="item item-input">
+                <span class="input-label">Installation Date</span>
+                <span class="input-label">{{assetInfo.InstallationDate | beautyDate}}</span>
+            </label>
+            <label ng-if="assetInfo.Manufacturer != '' && assetInfo.Manufacturer != undefined" class="item item-input">
+                <span class="input-label">Manufacturer</span>
+                <span class="input-label">{{assetInfo.Manufacturer}}</span>
+            </label>
+            <label ng-if="assetInfo.ManufactureDate != '' && assetInfo.ManufactureDate != undefined" class="item item-input">
+                <span class="input-label">Manufacture Date</span>
+                <span class="input-label">{{assetInfo.ManufactureDate | beautyDate}}</span>
+            </label>
+            <label ng-if="assetInfo.ModelNumber != '' && assetInfo.ModelNumber != undefined" class="item item-input">
+                <span class="input-label">Model Number</span>
+                <span class="input-label">{{assetInfo.ModelNumber}}</span>
+            </label>
+            <label ng-if="assetInfo.StartDate != '' && assetInfo.StartDate != undefined" class="item item-input">
+                <span class="input-label">Start Date</span>
+                <span class="input-label">{{assetInfo.StartDate | beautyDate}}</span>
+            </label>
+            <label ng-if="assetInfo.WarrantyStart != '' && assetInfo.WarrantyStart != undefined" class="item item-input">
+                <span class="input-label">Warranty Start</span>
+                <span class="input-label">{{assetInfo.WarrantyStart | beautyDate}}</span>
+            </label>
+            <label ng-if="assetInfo.WarrantyEnd != '' && assetInfo.WarrantyEnd != undefined" class="item item-input">
+                <span class="input-label">Warranty End</span>
+                <span class="input-label">{{assetInfo.WarrantyEnd | beautyDate}}</span>
+            </label>
+
+            <!--AssetTypeID: 0
+            StatusCode: 0-->
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Asset Status" icon-on="ion-ios-pie" icon-off="ion-ios-pie-outline" ng-click="onTabSelected(1)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <h2>Status</h2>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Asset Alarms" icon-on="ion-nuclear" icon-off="ion-nuclear" ng-click="onTabSelected(2)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <div ng-repeat="alarm in alarms" ng-click="onAlarmClick(alarm)">
+                <ion-item class="item-thumbnail-left">
+                    <!--<img src="../img/ticket.png">-->
+
+                    <h2>{{alarm.AssetName}}</h2>
+
+                    <p>{{alarm.StatusTimestamp | beautyDate}}</p>
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Asset Tickets" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" ng-click="onTabSelected(3)">
+        <ion-content class="tabPaddingWithTitle" has-header="true" padding="true">
+            <div ng-repeat="ticket in tickets" ng-click="onTicketClick(ticket)">
+                <ion-item class="item-thumbnail-left">
+<!--                    <img src="../img/ticket.png">-->
+                    <h2>{{ticket.ObjectName}}</h2>
+                    <p>{{ticket.CreatedOn | beautyDate}}</p>
+                </ion-item>
+            </div>
+        </ion-content>
+    </ion-tab>
+
+</ion-tabs>

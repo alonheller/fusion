@@ -1,0 +1,27 @@
+<ion-view title="FusionLive © 2015">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Server</span>
+                <input type="text" ng-model="model.server">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" ng-model="model.user">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="model.password">
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="onLogin()">
+                Sign-In
+            </button>
+            <!--<p class="text-center">
+                <a ng-disabled="true" href="#/forgot-password">Forgot password</a>
+            </p>-->
+        </div>
+    </ion-content>
+    <!--</ion-pane>-->
+</ion-view>
